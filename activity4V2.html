@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Information</title>
+  <style>
+    /* Background gradient animation */
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff416c, #ff4b2b);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      color: white;
+    }
+
+    /* Form container animation */
+    @keyframes fadeSlideUp {
+      0% {opacity: 0; transform: translateY(50px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      width: 450px;
+      animation: fadeSlideUp 1s ease forwards;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #fff;
+      animation: fadeSlideUp 1.2s ease forwards;
+    }
+
+    table {
+      width: 100%;
+      color: white;
+      border-collapse: collapse;
+    }
+
+    td {
+      padding: 8px;
+      vertical-align: top;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      transition: 0.3s;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    select:focus {
+      border-color: #ff4b2b;
+      box-shadow: 0 0 10px #ff4b2b;
+      outline: none;
+    }
+
+    input[type="submit"],
+    button {
+      background: linear-gradient(45deg, #2575fc, #6a11cb);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    input[type="submit"]:hover,
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      background: linear-gradient(45deg, #ff4b2b, #ff416c);
+    }
+
+    .buttons {
+      text-align: center;
+    }
+
+    /* Checkbox and radio animations */
+    input[type="checkbox"],
+    input[type="radio"] {
+      transform: scale(1.2);
+      margin-right: 6px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    input[type="checkbox"]:hover,
+    input[type="radio"]:hover {
+      transform: scale(1.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>User Information</h2>
+    <form action="" method="post">
+      <table>
+        <tr>
+          <td><label for="fname">First Name:</label></td>
+          <td><input type="text" id="fname" name="firstname" required></td>
+        </tr>
+
+        <tr>
+          <td><label for="lname">Last Name:</label></td>
+          <td><input type="text" id="lname" name="lastname" required></td>
+        </tr>
+
+        <tr>
+          <td><label for="age">Age:</label></td>
+          <td><input type="number" id="age" name="age" min="1" required></td>
+        </tr>
+
+        <tr>
+          <td>Gender:</td>
+          <td>
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" value="female"> Female
+            <input type="radio" name="gender" value="other"> Other
+          </td>
+        </tr>
+
+        <tr>
+          <td>Hobbies:</td>
+          <td>
+            <input type="checkbox" name="interest" value="coding"> Coding<br>
+            <input type="checkbox" name="interest" value="music"> Music<br>
+            <input type="checkbox" name="interest" value="sports"> Sports<br>
+            <input type="checkbox" name="interest" value="gaming"> Gaming
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="yearlevel">Year Level:</label></td>
+          <td>
+            <select id="yearlevel" name="yearlevel">
+              <option value="1styear">1st Year</option>
+              <option value="2ndyear">2nd Year</option>
+              <option value="3rdyear">3rd Year</option>
+              <option value="4thyear">4th Year</option>
+              <option value="returning">Returning</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2" class="buttons">
+            <input type="submit" value="Submit">
+            <button type="button" onclick="clearForm()">Clear</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+  <script>
+    function clearForm() {
+      document.querySelector("form").reset();
+    }
+  </script>
+</body>
+</html>
